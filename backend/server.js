@@ -1,6 +1,6 @@
 const express = require('express');
 //const axios = require('axios');
-//const appRouter = require('./routes/index')
+const appRouter = require('./src/routes/index')
 const path = require('path');
 const { connectDB, configObject } = require('./config/index')
 const cors = require('cors');
@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser(configObject.cookie_secret_key));
-//app.use(appRouter)
+app.use(appRouter)
 
 
 // Iniciar el servidor

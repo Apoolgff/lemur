@@ -13,12 +13,19 @@ const cotizacionSchema = new Schema({
     ref: 'agencia',
     required: true
   },
+  titulo: {
+    type: String,
+    required: true,
+  },
+  detalles: {
+    type: String
+  },
   clienteNombre: {
     type: String,
     trim: true,
     required: true
   },
-  clienteMail: {
+  clienteEmail: {
     type: String,
     lowercase: true,
     trim: true,
@@ -46,7 +53,7 @@ const cotizacionSchema = new Schema({
 cotizacionSchema.pre(/^find/, function() {
   this.populate({
     path: 'empleado',
-    select: 'nombre mail telefono puesto'
+    select: 'nombre email telefono puesto'
   });
 });
 

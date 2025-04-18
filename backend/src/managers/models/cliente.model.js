@@ -17,7 +17,7 @@ const clienteSchema = new Schema({
     type: String,
     trim: true
   },
-  mail: {
+  email: {
     type: String,
     lowercase: true,
     trim: true,
@@ -42,7 +42,7 @@ clienteSchema.pre(/^find/, function() {
 });
 
 // Índices
-clienteSchema.index({ mail: 1 });
+clienteSchema.index({ email: 1 });
 clienteSchema.index({ nombre: 1 });
 clienteSchema.index({ apellido: 1 });
 

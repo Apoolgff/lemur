@@ -7,7 +7,7 @@ const agenciaSchema = new Schema({
     type: String,
     trim: true // Limpia espacios en blanco al inicio/final
   },
-  mail: { 
+  email: { 
     type: String,
     lowercase: true // Normaliza a minúsculas
   },
@@ -66,7 +66,7 @@ agenciaSchema.pre(/^find/, function() {
   });
 });
 
-agenciaSchema.index({ mail: 1 }, { unique: true });
+agenciaSchema.index({ email: 1 }, { unique: true });
 agenciaSchema.index({ nombre: 1 });
 agenciaSchema.index({ usuarios: 1 });
 

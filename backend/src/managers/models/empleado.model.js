@@ -18,7 +18,7 @@ const empleadoSchema = new Schema({
     trim: true,
     required: true
   },
-  mail: { 
+  email: { 
     type: String,
     lowercase: true,
     trim: true,
@@ -76,12 +76,12 @@ empleadoSchema.pre(/^find/, function() {
     select: '-cotizacionesRecibidas' // Opcional: excluye campos pesados
   }).populate({
     path: 'cotizaciones',
-    select: '-detalles' // Si 'detalles' es muy grande
+    //select: '-detalles' // Si 'detalles' es muy grande
   });
 });
 
 // Índices para búsquedas rápidas
-empleadoSchema.index({ mail: 1 }); // Único ya está definido en el campo
+empleadoSchema.index({ email: 1 }); // Único ya está definido en el campo
 empleadoSchema.index({ agencia: 1 }); // Para consultas por agencia
 empleadoSchema.index({ puesto: 1 }); // Si filtran por puesto frecuentemente
 
