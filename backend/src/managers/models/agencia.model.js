@@ -42,7 +42,7 @@ const agenciaSchema = new Schema({
   },
   password: { 
     type: String,
-    select: false // Nunca se devuelve en consultas
+    //select: false // Nunca se devuelve en consultas
   },
   nivel: { 
     type: String,

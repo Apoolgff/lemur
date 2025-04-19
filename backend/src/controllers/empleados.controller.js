@@ -98,6 +98,28 @@ class EmpleadoController {
         }
     }
 
+    //logout empleado
+    // En empleados.controller.js
+logoutEmpleado = async (req, res) => {
+    try {
+        res.clearCookie(configObject.cookie_name, { 
+            httpOnly: true,
+            //secure: process.env.NODE_ENV === 'production' 
+        });
+
+        // Opcional: Invalidar token en servidor (si usas lista negra)
+        // const token = req.cookies[configObject.cookie_name];
+        // await TokenBlacklist.create({ token });
+
+        res.status(200).json({ 
+            status: 'success', 
+            message: 'Sesión cerrada correctamente' 
+        });
+    } catch (error) {
+        res.status(500).json({ status: 'error', message: error.message });
+    }
+}
+
     // Obtener perfil del empleado (para el propio empleado)
     getProfile = async (req, res) => {
         try {
